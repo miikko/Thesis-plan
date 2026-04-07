@@ -16,43 +16,7 @@ Delta-based compression requires both encoder and decoder to share a consistent 
 
 ### Architecture (high level)
 
-```mermaid
-flowchart TB
-	subgraph Cloud [Cloud]
-		direction LR
-		subgraph VM [VM executing emulators]
-			direction LR
-			E1[Emu 1]
-			E2[Emu 2]
-			Edots["···"]:::dots
-			EN[Emu N]
-		end
-
-		subgraph Server [WS Server]
-			Compress[Frame Compression]
-		end
-	end
-
-	subgraph Clientsk
-		direction LR
-		C1[Client 1]
-		C2[Client 2]
-		Cdots["···"]:::dots
-		CN[Client N]
-	end
-
-	classDef dots fill:none,stroke:none,color:#fff,font-size:20px
-
-	VM -->|frames| Compress
-	Compress -->|"all N streams"| C1
-	Compress -->|"all N streams"| C2
-	Compress -->|"all N streams"| CN
-
-	C1 -.->|"input for Emu 1"| Server
-	C2 -.->|"input for Emu 2"| Server
-	CN -.->|"input for Emu N"| Server
-	Server -.->|input| VM
-```
+![high-level architecture](image.png)
 
 Solid arrows: compressed frame streams. Dashed arrows: client inputs routed to the VM.
 
@@ -118,3 +82,7 @@ Tetris uses a pseudo-random number generator (PRNG) to determine which pieces dr
 - Emulator performance evaluation is not included in the scope.
 - Emulator sound generation and transmission is not included in the scope, this is left for future work.
 - Optimizing input delivery to emulators is out of scope and left for future work.
+
+```
+
+```

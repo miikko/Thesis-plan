@@ -82,7 +82,3 @@ Tetris uses a pseudo-random number generator (PRNG) to determine which pieces dr
 - Emulator performance evaluation is not included in the scope.
 - Emulator sound generation and transmission is not included in the scope, this is left for future work.
 - Optimizing input delivery to emulators is out of scope and left for future work.
-
-```
-
-```
